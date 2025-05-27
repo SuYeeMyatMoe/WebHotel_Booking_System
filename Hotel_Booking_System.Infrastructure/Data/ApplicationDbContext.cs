@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Hotel_Booking_System.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace Hotel_Booking_System.Infrastructure.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options) 
         {
         }
+        public DbSet<Room> Rooms { get; set; }//must use ctrl . and choose reference to Hotel_Booking_System.Domain.Entities;
     }
 }
