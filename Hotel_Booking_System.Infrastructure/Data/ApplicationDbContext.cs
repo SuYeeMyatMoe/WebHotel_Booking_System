@@ -14,5 +14,11 @@ namespace Hotel_Booking_System.Infrastructure.Data
         {
         }
         public DbSet<Room> Rooms { get; set; }//must use ctrl . and choose reference to Hotel_Booking_System.Domain.Entities;
+
+        //Adding Initial record for Room in DBS
+        protected override void OnModelCreating(ModelBuilder modelBuilder)//protected override and choose OnModel in dropdown
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
