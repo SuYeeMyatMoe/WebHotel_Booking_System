@@ -20,5 +20,9 @@ namespace WebHotel_Booking_System_MVC.Controllers
             var rooms=_dbContext.Rooms.ToList();
             return View(rooms);//display the list in View by passing rooms parameter
         }
+        public IActionResult CreateRoom()
+        {
+            return View();
+        }
     }
 }
