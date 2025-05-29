@@ -1,6 +1,101 @@
 ﻿@{
     ViewData["Title"] = "About Us";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    .about-hero {
+        background-color: #ffc107;
+        color: #fff;
+        padding: 60px 0;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .about-section {
+        padding: 60px 0;
+    }
+
+    .about-image {
+        width: 90%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .about-text h2 {
+        color: #343a40;
+        font-weight: 700;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .about-section-flip {
+        padding: 60px 0;
+    }
+
+
+</style>
+
+<!-- Header Banner -->
+<div class="w-100 card border-0 mb-0 mt-4">
+    <div class="card-header py-2" style="background:#ffc107; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">About Us</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- First Section (Image Left, Text Right) -->
+<div class="container about-section">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="https://images.wsj.net/im-65599456?width=1280&size=1.501&pixel_ratio=1.5"
+                 alt="Hotel Front"
+                 class="about-image" />
+        </div>
+        <div class="col-md-6 about-text mt-4 mt-md-0">
+            <h2>Who We Are</h2>
+            <p>
+                At DreamStay Hotel, we offer a blend of comfort, style, and exceptional service.
+                Our mission is to provide travelers with memorable experiences — whether you're here for business or leisure.
+            </p>
+            <p>
+                With luxurious rooms, modern amenities, and a prime location, we make your stay enjoyable and stress-free.
+                From quick weekend getaways to extended vacations, DreamStay is your perfect home away from home.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Second Section (Text Left, Image Right using Bootstrap order classes) -->
+<div class="container about-section-flip">
+    <div class="row align-items-center">
+        <div class="col-md-6 order-md-2">
+            <img src="https://images.unsplash.com/photo-1623718649591-311775a30c43?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                 alt="Hotel Interior"
+                 class="about-image" />
+        </div>
+        <div class="col-md-6 order-md-1 about-text mt-4 mt-md-0">
+            <h2>Our Commitment</h2>
+            <p>
+                We are dedicated to sustainability and providing eco-friendly accommodations without compromising luxury.
+                Our team constantly innovates to reduce our environmental footprint while enhancing your comfort.
+            </p>
+            <p>
+                Experience impeccable hospitality, world-class amenities, and thoughtful services tailored just for you.
+                Your satisfaction and well-being are at the heart of everything we do.
+            </p>
+        </div>
+    </div>
+</div>
