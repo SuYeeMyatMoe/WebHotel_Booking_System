@@ -18,12 +18,6 @@
                         <li class="list-group-item"><strong>Occupancy:</strong> @room.Occupancy persons</li>
                     </ul>
                 </div>
-                <div class="card-footer text-muted">
-                    @if (room.CreatedDate.HasValue)
-                    {
-                        <small>Created: @room.CreatedDate.Value.ToShortDateString()</small>
-                    }
-                </div>
             </div>
         </div>
     }
