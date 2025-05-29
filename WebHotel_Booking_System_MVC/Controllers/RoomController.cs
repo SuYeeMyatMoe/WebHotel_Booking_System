@@ -18,7 +18,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
         public IActionResult Index()
         {
             var rooms=_dbContext.Rooms.ToList();
-            return View();
+            return View(rooms);//display the list in View by passing rooms parameter
         }
     }
 }
