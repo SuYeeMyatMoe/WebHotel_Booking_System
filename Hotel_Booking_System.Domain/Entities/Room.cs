@@ -15,8 +15,12 @@ namespace Hotel_Booking_System.Domain.Entities
 
         [Display(Name = "Price ($)")]
         public double PriceinDoller { get; set; }
+
+        [Display(Name = "Room Size (Sqft)")]
         public int RoomSize { get; set; }
         public int Occupancy { get; set; }
+
+        [Display(Name = "Image URL)")]
         public string? ImageUrl { get; set; }
 
         // Tracking in Logging
