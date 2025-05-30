@@ -26,3 +26,24 @@ body {
 .navbar-brand {
     font-size: 1.3rem;
 }
+.navbar-nav .nav-link {
+    font-style: italic;
+}
+
+@media (min-width: 1000px) {
+    .navbar-nav .nav-link {
+        font-size: 1.2rem;
+        position: relative;
+        text-decoration: none;
+        padding-bottom: 5px;
+        border-bottom: 2px solid transparent; /* invisible by default */
+        transition: border-color 0.3s ease;
+        margin-left: 5px;
+    }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            border-bottom: 2px solid #ffc107; /* yellow underline on hover or active */
+        }
+}
+
