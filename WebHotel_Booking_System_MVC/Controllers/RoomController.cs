@@ -1,5 +1,6 @@
 ﻿using Hotel_Booking_System.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebHotel_Booking_System_MVC.Controllers
 {
@@ -15,12 +16,12 @@ namespace WebHotel_Booking_System_MVC.Controllers
             _dbContext = dbContext;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var rooms=_dbContext.Rooms.ToList();
+            var rooms=await _dbContext.Rooms.ToListAsync();
             return View(rooms);//display the list in View by passing rooms parameter
         }
-        public IActionResult CreateRoom()
+        public async Task<IActionResult> CreateRoom()
         {
             return View();
         }
