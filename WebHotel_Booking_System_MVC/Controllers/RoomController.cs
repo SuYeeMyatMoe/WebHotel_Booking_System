@@ -39,5 +39,11 @@ namespace WebHotel_Booking_System_MVC.Controllers
             await _dbContext.SaveChangesAsync();
             return RedirectToAction("Index", "Room");
         }
+
+        [HttpGet]
+        public IActionResult EditRoom(Room room)
+        {
+            return View(room);
+        }
     }
 }
