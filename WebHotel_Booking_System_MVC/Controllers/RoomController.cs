@@ -46,5 +46,19 @@ namespace WebHotel_Booking_System_MVC.Controllers
             return View(); 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> RoomDetails(int id)
+        {
+            var room = await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+            return View(room);
+        }
+
+
+
+
     }
 }
