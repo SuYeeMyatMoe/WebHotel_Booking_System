@@ -41,9 +41,10 @@ namespace WebHotel_Booking_System_MVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditRoom(Room room)
+        public async Task<IActionResult> EditRoom(int id)
         {
-            return View(room);
+            return View(); 
         }
+
     }
 }
