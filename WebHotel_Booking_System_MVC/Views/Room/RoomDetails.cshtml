@@ -1,0 +1,47 @@
+﻿@model Hotel_Booking_System.Domain.Entities.Room
+
+@{
+    ViewData["Title"] = "Room Details - DreamStay";
+    var yellow = "#FFD700"; // DreamStay yellow
+    var darkText = "#333";
+    var lightGray = "#f9f9f9";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0" style="overflow: hidden;">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <img src="@Model.ImageUrl" alt="Room Image" class="img-fluid w-100 h-100" style="object-fit: cover;" />
+            </div>
+            <div class="col-md-6 bg-white d-flex flex-column justify-content-between">
+                <div class="card-body p-5">
+                    <h1 class="card-title mb-4" style="color:@yellow; font-weight: bold;">@Model.Name</h1>
+                    <p class="card-text text-muted" style="font-size: 1.1rem;">@Model.Description</p>
+
+                    <hr />
+
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item bg-transparent">
+                            <strong>Price:</strong> <span style="color:@darkText;">$@Model.PriceinDoller</span>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <strong>Room Size:</strong> <span style="color:@darkText;">@Model.RoomSize Sqft</span>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <strong>Occupancy:</strong> <span style="color:@darkText;">@Model.Occupancy persons</span>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex gap-3 mt-4">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            ← Back to Room List
+                        </a>
+                        <a asp-action="Book" asp-route-id="@Model.Id" class="btn" style="background-color:@yellow; color:@darkText; font-weight: 600;">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
