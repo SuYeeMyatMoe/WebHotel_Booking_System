@@ -36,7 +36,7 @@
                         <a asp-action="Index" class="btn btn-outline-secondary">
                             ← Back to Room List
                         </a>
-                        <a asp-action="Book" asp-route-id="@Model.Id" class="btn" style="background-color:@yellow; color:@darkText; font-weight: 600;">
+                        <a asp-route-id="@Model.Id" class="btn" asp-controller="Booking" asp-action="BookNow"  style="background-color:@yellow; color:@darkText; font-weight: 600;">
                             Book Now
                         </a>
                     </div>
