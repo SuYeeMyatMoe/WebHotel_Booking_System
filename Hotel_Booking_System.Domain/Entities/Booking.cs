@@ -12,10 +12,15 @@ namespace Hotel_Booking_System.Domain.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Guest name is required.")]
-        [Display(Name = "Guest Name")]
+        [Required(ErrorMessage = "First Name is required.")]
+        [Display(Name = "First Name")]
         [StringLength(100)]
-        public string GuestName { get; set; }
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "First Name is required.")]
+        [Display(Name = "Last Name")]
+        [StringLength(100)]
+        public string LastName { get; set; }
 
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid email format.")]
