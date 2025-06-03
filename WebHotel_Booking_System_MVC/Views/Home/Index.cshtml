@@ -37,22 +37,105 @@
 
     .btn-yellow {
         background-color: #ffc107;
-        color: #000;
+        color: black;
         border: none;
         font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:0.3s all
     }
 
-        .btn-yellow:hover {
+        .btn-yellow:hover{
             background-color: #e0a800;
+            outline: none;
+            color:white;
+            text-decoration:none;
         }
+
+    /* Booking Section */
+    .booking-section {
+        padding: 4rem 1rem;
+        background: url('https://img.freepik.com/premium-photo/luxury-resort-exterior_123827-23451.jpg') no-repeat center center;
+        background-size: cover;
+        color: #fff;
+        position: relative;
+        text-align: center;
+        margin-top:30px;
+    }
+
+        .booking-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+
+        .booking-section * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .booking-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .booking-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+    /* Gallery Section */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 3rem 2rem;
+    }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+            .gallery img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
 </style>
 
+<!-- Hero Section -->
 <div class="hero">
     <div class="hero-overlay">
         <div class="hero-content">
             <h1>Welcome to DreamStay Hotel</h1>
-            <p class="mb-4">Enjoy luxury, and unforgettable experiences. Book your perfect room today.</p>
-            <a asp-controller="Room" asp-action="Index" class="btn btn-yellow px-4 py-2 rounded-pill shadow-sm">Browse Rooms</a>
+            <p>Enjoy luxury, and unforgettable experiences. Book your perfect room today.</p>
+            <a asp-controller="Room" asp-action="Index" class="btn-yellow">Browse Rooms</a>
         </div>
     </div>
+</div>
+
+<!-- Booking Section -->
+<div class="booking-section">
+    <h2>Ready to Book Your Stay?</h2>
+    <p>Reserve your luxury experience with us today.</p>
+    <a asp-controller="Booking" asp-action="BookNow" class="btn-yellow">Book Now</a>
+</div>
+
+<!-- Hotel Design Gallery -->
+<div class="gallery">
+    <img src="https://img.freepik.com/premium-photo/luxury-hotel-room_1098-16638.jpg" alt="Hotel Room" />
+    <img src="https://img.freepik.com/premium-photo/hotel-lobby-modern-interior_124507-16388.jpg" alt="Hotel Lobby" />
+    <img src="https://img.freepik.com/premium-photo/rooftop-swimming-pool-hotel_53876-101022.jpg" alt="Rooftop Pool" />
+    <img src="https://img.freepik.com/premium-photo/restaurant-inside-hotel_117023-144.jpg" alt="Hotel Restaurant" />
 </div>
