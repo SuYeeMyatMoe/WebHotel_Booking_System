@@ -2,7 +2,7 @@
 
 namespace WebHotel_Booking_System_MVC.Controllers
 {
-    public class ContactUs_Controller : Controller
+    public class ContactUsController : Controller
     {
         [HttpGet]
         public IActionResult Contact()
