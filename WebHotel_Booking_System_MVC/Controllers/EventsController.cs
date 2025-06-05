@@ -4,7 +4,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
 {
     public class EventsController : Controller
     {
-        public IActionResult Index()
+        public IActionResult EventList()
         {
             return View();
         }
