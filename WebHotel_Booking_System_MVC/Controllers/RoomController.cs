@@ -38,6 +38,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
             //check for validation (to handle exception error due to required model attribute)
             if (ModelState.IsValid)//ModelState can help to debug invalid
             {
+                room.CreatedDate = DateTime.UtcNow; // Set current UTC time on creation
                 await _dbContext.Rooms.AddAsync(room);
                 await _dbContext.SaveChangesAsync();
                 return RedirectToAction("Index", "Room");
