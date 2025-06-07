@@ -10,6 +10,8 @@ namespace Hotel_Booking_System.Domain.Entities
     public class Room
     {
         public int Id { get; set; }
+
+        [MaxLength(100, ErrorMessage = "Room name cannot exceed 100 characters.")]//this will auto added max length in input (can check by inspect)
         public required string Name { get; set; }
         public string? Description { get; set; }
 
