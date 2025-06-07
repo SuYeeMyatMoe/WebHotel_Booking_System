@@ -35,6 +35,12 @@ namespace WebHotel_Booking_System_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRoom(Room room)
         {
+            //custom validation which prevent saving but cannot be seen in UI
+            if (room.Name == room.Description)
+            {
+                ModelState.AddModelError("", "The Room description cannot exactly match the Name");
+            }
+
             //check for validation (to handle exception error due to required model attribute)
             if (ModelState.IsValid)//ModelState can help to debug invalid
             {
