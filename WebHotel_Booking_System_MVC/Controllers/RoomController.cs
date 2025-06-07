@@ -35,9 +35,14 @@ namespace WebHotel_Booking_System_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRoom(Room room)
         {
-            await _dbContext.Rooms.AddAsync(room);
-            await _dbContext.SaveChangesAsync();
-            return RedirectToAction("Index", "Room");
+            //check for validation (to handle exception error due to required model attribute)
+            if (ModelState.IsValid)//ModelState can help to debug invalid
+            {
+                await _dbContext.Rooms.AddAsync(room);
+                await _dbContext.SaveChangesAsync();
+                return RedirectToAction("Index", "Room");
+            }
+            return View();
         }
 
         [HttpGet]
