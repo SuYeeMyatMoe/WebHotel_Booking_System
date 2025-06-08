@@ -14,6 +14,7 @@
         <div class="card-body">
             <form asp-action="CreateRoom" method="post" enctype="multipart/form-data">
                 <div class="row">
+                    <!--asp-validation-summary is not attached to the property of the model like asp-validation-for-->
                     @if (!ViewData.ModelState.IsValid)
                     {
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -21,10 +22,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     }
-
-
-
-
 
                     <div class="col-md-6 mb-3">
                         <label asp-for="Name" class="form-label fw-semibold"></label>
