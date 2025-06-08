@@ -24,6 +24,7 @@ namespace Hotel_Booking_System.Domain.Entities
 
         [Range(1, 10, ErrorMessage = "Occupancy must be between 1 and 10.")]//between 1 and 10 to prevent 0 and overtyping
         public int Occupancy { get; set; }
+        //Error Messages will be shown in span of razor form with (asp-validation-for) class (without model attribute, it will only show for null data error)
 
         [Display(Name = "Image URL)")]
         public string? ImageUrl { get; set; }
