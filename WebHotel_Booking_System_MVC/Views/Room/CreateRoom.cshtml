@@ -14,6 +14,18 @@
         <div class="card-body">
             <form asp-action="CreateRoom" method="post" enctype="multipart/form-data">
                 <div class="row">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div asp-validation-summary="All" class="mb-0 list-unstyled"></div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+
+
+
+
                     <div class="col-md-6 mb-3">
                         <label asp-for="Name" class="form-label fw-semibold"></label>
                         <input asp-for="Name" class="form-control" />

@@ -38,7 +38,8 @@ namespace WebHotel_Booking_System_MVC.Controllers
             //custom validation which prevent saving but cannot be seen in UI
             if (room.Name == room.Description)
             {
-                ModelState.AddModelError("", "The Room description cannot exactly match the Name");
+                ModelState.AddModelError("", "The Room description cannot exactly match the Name.");//key, value and since key is empty it don't know where to show so must use with asp-validation-summary="ModelOnly" in div
+                //after checking other validation, it will check custom validation in last before saving and show message if it is invalid
             }
 
             //check for validation (to handle exception error due to required model attribute)
@@ -49,7 +50,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
                 await _dbContext.SaveChangesAsync();
                 return RedirectToAction("Index", "Room");
             }
-            return View();
+            return View(room);
         }
 
         [HttpGet]
