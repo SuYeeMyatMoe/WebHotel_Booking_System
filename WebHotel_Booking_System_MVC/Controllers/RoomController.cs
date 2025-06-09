@@ -56,7 +56,12 @@ namespace WebHotel_Booking_System_MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> EditRoom(int id)
         {
-            return View(id);
+            var room = await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+            return View(room); // load existing room data into the form
         }
 
         [HttpPost]
