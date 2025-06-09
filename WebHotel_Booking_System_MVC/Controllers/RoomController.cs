@@ -67,7 +67,34 @@ namespace WebHotel_Booking_System_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> EditRoom(Room room)//same name but different parameter
         {
-            return View(room);
+            if (room.Name == room.Description)
+            {
+                ModelState.AddModelError("", "The Room description cannot exactly match the Name.");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var existingRoom = await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == room.Id);
+                if (existingRoom == null)
+                {
+                    return NotFound();
+                }
+
+                // Update the properties
+                existingRoom.Name = room.Name;
+                existingRoom.Description = room.Description;
+                existingRoom.PriceinDoller = room.PriceinDoller;
+                existingRoom.RoomSize = room.RoomSize;
+                existingRoom.Occupancy = room.Occupancy;
+                existingRoom.UpdatedDate = DateTime.UtcNow;
+
+                _dbContext.Rooms.Update(existingRoom);
+                await _dbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(room); // return form with validation errors
         }
 
         [HttpGet]
