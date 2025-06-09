@@ -56,7 +56,13 @@ namespace WebHotel_Booking_System_MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> EditRoom(int id)
         {
-            return View(); 
+            return View(id);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditRoom(Room room)//same name but different parameter
+        {
+            return View(room);
         }
 
         [HttpGet]
