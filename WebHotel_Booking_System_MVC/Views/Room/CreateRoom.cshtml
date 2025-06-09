@@ -72,6 +72,7 @@
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");//If multiple views include validation scripts, this ensures they’re placed only once, in the same location, and not scattered throughout the page
+        //and page is not refreshing when save button is saved as the request will never go to controller unless client side validation are complete
     }
 }
 
