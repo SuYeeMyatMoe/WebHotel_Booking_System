@@ -70,6 +70,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
             if (room.Name == room.Description)
             {
                 ModelState.AddModelError("", "The Room description cannot exactly match the Name.");
+                TempData["ErrorMessage"] = "Room update failed: Description cannot be the same as Name.";
             }
 
             if (ModelState.IsValid)
@@ -77,7 +78,8 @@ namespace WebHotel_Booking_System_MVC.Controllers
                 var existingRoom = await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == room.Id);
                 if (existingRoom == null)
                 {
-                    return NotFound();
+                    TempData["ErrorMessage"] = "Room not found.";
+                    return RedirectToAction("Index");
                 }
 
                 // Update the properties
@@ -91,6 +93,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
                 _dbContext.Rooms.Update(existingRoom);
                 await _dbContext.SaveChangesAsync();
 
+                TempData["SuccessMessage"] = "Room is updated successfully!";
                 return RedirectToAction("Index");
             }
 
@@ -107,6 +110,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
             }
             return View(room);
         }
+        
 
 
 
