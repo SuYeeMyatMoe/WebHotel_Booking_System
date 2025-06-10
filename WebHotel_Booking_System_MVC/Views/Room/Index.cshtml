@@ -12,6 +12,21 @@
     </div>
 </div>
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-3" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+
 <div class="card-body border py-3">
     <div class="row pb-0">
         <div class="col-6 offset-6 text-end">
@@ -57,6 +72,8 @@
                            onclick="return confirm('Are you sure you want to delete this room?');">
                             Delete
                         </a>
+
+
 
                     </div>
                 </div>
