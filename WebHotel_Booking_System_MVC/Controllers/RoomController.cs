@@ -110,7 +110,22 @@ namespace WebHotel_Booking_System_MVC.Controllers
             }
             return View(room);
         }
-        
+        [HttpGet]//not HttpPost unless it is in form 
+        public async Task<IActionResult> DeleteRoom(int id)
+        {
+            var room = await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == id);
+            if (room == null)
+            {
+                TempData["ErrorMessage"] = "Room is not found.";
+                return RedirectToAction("Index");
+            }
+
+            _dbContext.Rooms.Remove(room);
+            await _dbContext.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Room deleted successfully!";
+            return RedirectToAction("Index");
+        }
 
 
 
