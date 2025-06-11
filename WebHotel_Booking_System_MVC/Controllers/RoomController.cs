@@ -40,6 +40,7 @@ namespace WebHotel_Booking_System_MVC.Controllers
             {
                 ModelState.AddModelError("", "The Room description cannot exactly match the Name.");//key, value and since key is empty it don't know where to show so must use with asp-validation-summary="ModelOnly" in div
                 //after checking other validation, it will check custom validation in last before saving and show message if it is invalid
+                TempData["ErrorMessage"] = "Room's creation failed: Description cannot be the same as Name.";
             }
 
             //check for validation (to handle exception error due to required model attribute)
@@ -48,8 +49,10 @@ namespace WebHotel_Booking_System_MVC.Controllers
                 room.CreatedDate = DateTime.UtcNow; // Set current UTC time on creation
                 await _dbContext.Rooms.AddAsync(room);
                 await _dbContext.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Room is created successfully!";
                 return RedirectToAction("Index", "Room");
             }
+            TempData["ErrorMessage"] = "Please fill all the textbox correctly to create a room.";
             return View(room);
         }
 
